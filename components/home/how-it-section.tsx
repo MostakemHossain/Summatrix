@@ -55,8 +55,8 @@ const HowItWorks = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 max-w-6xl mx-auto relative">
           {steps.map((step, idx) => (
             <div className="relative flex items-stretch">
-              <StepItem key={idx} {...step} />
-              {idx!==0 && (
+              <StepItem {...step} />
+              {idx !== 0 && (
                 <div className="hidden absolute md:block top-1/2 z-10 transform -translate-y-1/2">
                   <MoveRight
                     size={32}
