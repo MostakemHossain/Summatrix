@@ -1,9 +1,10 @@
 import Footer from "@/components/common/Footer";
 import Header from "@/components/common/Header";
+import { Toaster } from "@/components/ui/sonner";
+import { ClerkProvider } from "@clerk/nextjs";
 import type { Metadata } from "next";
 import { Source_Sans_3 as FontSans } from "next/font/google";
 import "./globals.css";
-import { ClerkProvider } from "@clerk/nextjs";
 
 const fontSans = FontSans({
   variable: "--font-sans",
@@ -28,6 +29,7 @@ export default function RootLayout({
         <body className={`${fontSans.variable} font-sans  antialiased`}>
           <div className="min-h-screen relative flex flex-col">
             <Header />
+            <Toaster />
             <main className="flex-1">{children}</main>
             <Footer />
           </div>
