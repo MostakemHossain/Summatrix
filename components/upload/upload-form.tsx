@@ -3,6 +3,7 @@ import { toast } from "sonner";
 import { z } from "zod";
 import UploadFormInput from "./upload-form-input";
 import { useUploadThing } from "@/utils/uploadthing";
+import { GeneratePdfSummary } from "@/actions/upload-actions";
 
 const schema = z.object({
   file: z
@@ -55,6 +56,10 @@ const UploadForm = () => {
       toast.error("Failed to upload the file");
       return;
     }
+
+    // parse the pdf using langchain
+    const summary= await GeneratePdfSummary(res);
+    console.log(summary)
 
   };
   return (
